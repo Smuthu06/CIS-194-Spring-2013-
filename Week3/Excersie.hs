@@ -18,7 +18,7 @@ localMaxima :: [Integer] -> [Integer]
 localMaxima x = deleteBy (==) 0 $ go x (length x)
     where
         go x l
-            | l >= 3 = (\(a:b:c:[]) -> if (b > a && b > c)  then b : (go (drop 2 x )(l-2)) else (go (drop 2 x )(l-2)))(take 3 x) 
+            | l >= 3 = (\(a:b:c:_) -> if (b > a && b > c)  then b : (go (drop 2 x )(l-2)) else (go (drop 2 x )(l-2)))(take 3 x) 
             | otherwise = []
 
 localMaxima' :: [Integer] -> [Integer]
